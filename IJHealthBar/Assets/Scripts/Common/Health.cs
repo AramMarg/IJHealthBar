@@ -1,23 +1,31 @@
 using System;
 using UnityEngine;
 
-public class Healther : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    [SerializeField] private int _amor = 5;
+    [SerializeField] private Armor _armor;
+    [SerializeField] private Inventory _inventory;
 
     private int _health = 100;
-    private int _healInInventory;
     private int _minHealth = 0;
     private int _maxHealth = 100;
     private int _minDamage = 1;
+    private int _healInInventory;
 
     public event Action<int> HealthChanged;
 
     public void TakeDamage(int damage)
     {
-        damage -= _amor; 
+        if (damage < 0)
+        {
+            return;
+        }
 
-        if (damage <= _minHealth)
+        damage = _armor.ApplyArmor(damage);
+
+        _healInInventory = _inventory.GetHealFromInventory();
+
+        if (damage == 0)
         {
             damage = _minDamage;
         }
@@ -34,15 +42,20 @@ public class Healther : MonoBehaviour
         if (_health == _minHealth)
         {
             HealthChanged?.Invoke(_minHealth);
-
-            Destroy(gameObject);
         }
+
+        _inventory.SetHealInInventory(_healInInventory);
 
         HealthChanged?.Invoke(_health);
     }
 
     public void Heal(int heal)
     {
+        if (heal < 0)
+        {
+            return;
+        }
+
         if (_health == _maxHealth)
         {
             _healInInventory += heal;
@@ -58,6 +71,11 @@ public class Healther : MonoBehaviour
             _health += heal;
         }
 
+        _inventory.SetHealInInventory(_healInInventory);
+
         HealthChanged?.Invoke(_health);
     }
+
+    public int GetMaxHealth() =>
+          _maxHealth = 100;
 }

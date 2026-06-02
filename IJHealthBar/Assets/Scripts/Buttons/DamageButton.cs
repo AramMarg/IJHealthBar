@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class DamageButton : ButtonTrigger
+public class DamageButton : ButtonClicker
 {
     [SerializeField] private int _damage = 10;
 
     public override void OnClick()
     {
-        _healther.TakeDamage(_damage);
+        Health.TakeDamage(_damage);
     }
 }

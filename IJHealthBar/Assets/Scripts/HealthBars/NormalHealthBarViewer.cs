@@ -7,9 +7,9 @@ public class NormalHealthBarViewer : HealthBarViewer
 
     private float _fillConvertCount = 100f;
 
-    public override void SetInitialStats()
+    public override void SetInitialStats(int maxHealth)
     {
-        _fillImige.fillAmount = _healthAtStart / _fillConvertCount;
+        _fillImige.fillAmount = maxHealth / _fillConvertCount;
     }
 
     public override void OnHealthChanged(int helth)

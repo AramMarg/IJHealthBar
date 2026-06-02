@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 253492296}
-  _healther: {fileID: 503506618}
+  Health: {fileID: 503506618}
   _damage: 10
 --- !u!1 &418569474
 GameObject:
@@ -585,6 +585,8 @@ GameObject:
   - component: {fileID: 503506617}
   - component: {fileID: 503506616}
   - component: {fileID: 503506618}
+  - component: {fileID: 503506620}
+  - component: {fileID: 503506619}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Untagged
@@ -669,10 +671,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 503506615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc7fa97a6d3f42ed9d48862f6979071, type: 3}
+  m_Script: {fileID: 11500000, guid: f765941e4cf3842b6912bf979ee5ed09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amor: 5
+  _armor: {fileID: 503506620}
+  _inventory: {fileID: 503506619}
+--- !u!114 &503506619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503506615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434f5d120c1884a8fa936768b892b4ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &503506620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503506615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b609a3ef58cf4787add78b07c20ab00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armor: 5
 --- !u!1 &505596248
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,9 +789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc620f0d55894aba87d7cef09bed51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healther: {fileID: 503506618}
+  Health: {fileID: 503506618}
   _fillImige: {fileID: 505596250}
-  _smoothDelay: 0.25
+  _smoothDelay: 0.1
 --- !u!1 &508103873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2a01f243ff64f3e992bc911c2fc2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healther: {fileID: 503506618}
+  Health: {fileID: 503506618}
   _text: {fileID: 600214229}
 --- !u!1 &738563235
 GameObject:
@@ -1392,9 +1420,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1656,7 +1684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1511737887}
-  _healther: {fileID: 503506618}
+  Health: {fileID: 503506618}
   _heal: 10
 --- !u!1 &2007260876
 GameObject:
@@ -1746,7 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac20da708cbc4b2cabd03c3cf5fb55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healther: {fileID: 503506618}
+  Health: {fileID: 503506618}
   _fillImige: {fileID: 2007260878}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

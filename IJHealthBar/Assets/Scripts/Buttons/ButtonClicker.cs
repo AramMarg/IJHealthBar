@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ButtonTrigger : MonoBehaviour
+public abstract class ButtonClicker : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] protected Healther _healther;
+    [SerializeField] protected Health Health;
 
     protected void OnEnable()
     {

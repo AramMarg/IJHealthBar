@@ -2,26 +2,26 @@ using UnityEngine;
 
 public abstract class HealthBarViewer : MonoBehaviour
 {
-    [SerializeField] protected Healther _healther;
-
-    protected int _healthAtStart = 100;
+    [SerializeField] protected Health Health;
 
     protected void Awake()
     {
-        SetInitialStats();
+        int maxHealth = Health.GetMaxHealth();
+
+        SetInitialStats(maxHealth);
     }
 
     protected void OnEnable()
     {
-        _healther.HealthChanged += OnHealthChanged;
+        Health.HealthChanged += OnHealthChanged;
     }
 
     protected void OnDisable()
     {
-        _healther.HealthChanged -= OnHealthChanged;
+        Health.HealthChanged -= OnHealthChanged;
     }
 
-    public abstract void SetInitialStats();
+    public abstract void SetInitialStats(int maxHealth);
 
     public abstract void OnHealthChanged(int helth);
 }
