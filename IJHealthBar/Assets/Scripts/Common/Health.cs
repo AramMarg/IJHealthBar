@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private Armor _armor;
-    [SerializeField] private Inventory _inventory;
+    [SerializeField] private HealthHandler _healthHandler;
 
     private int _health = 100;
     private int _minHealth = 0;
     private int _maxHealth = 100;
-    private int _minDamage = 1;
-    private int _healInInventory;
 
     public event Action<int> HealthChanged;
+
+    public int GetMaxHealth() =>
+          _maxHealth;
 
     public void TakeDamage(int damage)
     {
@@ -21,30 +21,19 @@ public class Health : MonoBehaviour
             return;
         }
 
-        damage = _armor.ApplyArmor(damage);
+        damage = _healthHandler.CalculateDamage(damage);
 
-        _healInInventory = _inventory.GetHealFromInventory();
+        _health -= damage;
 
-        if (damage == 0)
+        if (_health <= _minHealth)
         {
-            damage = _minDamage;
-        }
-
-        _health = Mathf.Clamp(_health - damage, _minHealth, _maxHealth);
-
-        if (_health == _minHealth && _healInInventory >= damage)
-        {
-            _healInInventory -= damage;
-
-            _health += damage;
+            _health = _healthHandler.TakeHealthFromInventory(_health);
         }
 
         if (_health == _minHealth)
         {
             HealthChanged?.Invoke(_minHealth);
         }
-
-        _inventory.SetHealInInventory(_healInInventory);
 
         HealthChanged?.Invoke(_health);
     }
@@ -58,24 +47,19 @@ public class Health : MonoBehaviour
 
         if (_health == _maxHealth)
         {
-            _healInInventory += heal;
+            _healthHandler.CalculateHealInInventoty(heal);
         }
         else if (_health + heal >= _maxHealth)
         {
             _health = _maxHealth;
 
-            _healInInventory += _health + heal - _maxHealth;
+            _healthHandler.CalculateHealInInventoty(_health + heal - _maxHealth);
         }
         else if (_health + heal < _maxHealth)
         {
             _health += heal;
         }
 
-        _inventory.SetHealInInventory(_healInInventory);
-
         HealthChanged?.Invoke(_health);
     }
-
-    public int GetMaxHealth() =>
-          _maxHealth = 100;
 }

@@ -11,9 +11,9 @@ public class SmoothHealthBarViewer : HealthBarViewer
 
     private Coroutine _coroutine;
 
-    public override void SetInitialStats(int maxHealth)
+    private void Start()
     {
-        _fillImige.fillAmount = maxHealth / _fillConvertCount;
+        _fillImige.fillAmount = Health.GetMaxHealth() / _fillConvertCount;
     }
 
     public override void OnHealthChanged(int helth)

@@ -9,11 +9,11 @@ public class TextHealthBarViewer : HealthBarViewer
 
     private string _middleString = " / ";
 
-    public override void SetInitialStats(int maxHealth)
+    private void Start()
     {
-        _maxHealth = maxHealth;
+        _maxHealth = Health.GetMaxHealth();
 
-        _text.text = maxHealth.ToString() + _middleString + _maxHealth.ToString();
+        _text.text = _maxHealth.ToString() + _middleString + _maxHealth.ToString();
     }
 
     public override void OnHealthChanged(int helth)

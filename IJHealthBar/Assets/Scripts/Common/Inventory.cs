@@ -7,6 +7,9 @@ public class Inventory : MonoBehaviour
     public void SetHealInInventory(int heal) =>
         _healInInventory = heal;
 
+    public int AddHeal(int heal) =>
+        _healInInventory += heal;
+
     public int GetHealFromInventory() =>
         _healInInventory;
 }
