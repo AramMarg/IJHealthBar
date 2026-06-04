@@ -11,7 +11,7 @@ public class TextHealthBarViewer : HealthBarViewer
 
     private void Start()
     {
-        _maxHealth = Health.GetMaxHealth();
+        _maxHealth = Health.Max;
 
         _text.text = _maxHealth.ToString() + _middleString + _maxHealth.ToString();
     }

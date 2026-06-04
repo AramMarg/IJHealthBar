@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public abstract class ButtonClicker : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] protected Health Health;
 
     protected void OnEnable()
     {

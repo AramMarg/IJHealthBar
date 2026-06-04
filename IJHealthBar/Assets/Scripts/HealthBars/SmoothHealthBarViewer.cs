@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SmoothHealthBarViewer : HealthBarViewer
 {
     [SerializeField] private Image _fillImige;
-    [SerializeField] private float _smoothDelay = 0.1f;
+    [SerializeField] private float _smoothSpeed = 5f;
 
     private float _fillConvertCount = 100f;
 
@@ -13,7 +13,7 @@ public class SmoothHealthBarViewer : HealthBarViewer
 
     private void Start()
     {
-        _fillImige.fillAmount = Health.GetMaxHealth() / _fillConvertCount;
+        _fillImige.fillAmount = Health.Max / _fillConvertCount;
     }
 
     public override void OnHealthChanged(int helth)
@@ -28,11 +28,16 @@ public class SmoothHealthBarViewer : HealthBarViewer
 
     private IEnumerator SmoothFill(int helth)
     {
-        while (_fillImige.fillAmount != helth / _fillConvertCount)
+        float tempFill = _fillImige.fillAmount;
+        float elapsedTime = 0;
+
+        while (Mathf.Approximately(_fillImige.fillAmount, helth / _fillConvertCount) == false)
         {
-            _fillImige.fillAmount = Mathf.MoveTowards
-                (_fillImige.fillAmount, helth / _fillConvertCount,
-                _smoothDelay * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+
+            _fillImige.fillAmount = Mathf.Lerp
+                (tempFill, helth / _fillConvertCount,
+               elapsedTime * _smoothSpeed);
 
             yield return null;
         }

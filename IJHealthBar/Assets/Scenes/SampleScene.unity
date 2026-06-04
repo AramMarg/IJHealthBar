@@ -334,8 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 253492296}
-  Health: {fileID: 1870470846}
   _damage: 10
+  _damageHealthCalculator: {fileID: 1870470850}
 --- !u!1 &418569474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,8 +1642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1511737887}
-  Health: {fileID: 1870470846}
   _heal: 10
+  _healHealthCalculator: {fileID: 1870470849}
 --- !u!1 &1870470843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,10 +1653,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1870470848}
-  - component: {fileID: 1870470847}
   - component: {fileID: 1870470846}
   - component: {fileID: 1870470845}
   - component: {fileID: 1870470844}
+  - component: {fileID: 1870470850}
+  - component: {fileID: 1870470849}
   m_Layer: 0
   m_Name: CommonScripts
   m_TagString: Untagged
@@ -1701,21 +1702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f765941e4cf3842b6912bf979ee5ed09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthHandler: {fileID: 1870470847}
---- !u!114 &1870470847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870470843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c18c928d80e41dc84dbea9a6a18478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armor: {fileID: 1870470845}
-  _inventory: {fileID: 1870470844}
 --- !u!4 &1870470848
 Transform:
   m_ObjectHideFlags: 0
@@ -1731,6 +1717,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1870470849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870470843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8884cde47f05b4b968f565c46e804f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1870470846}
+  _inventory: {fileID: 1870470844}
+--- !u!114 &1870470850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870470843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3fd013372ed43c4bbd3f86e8637a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armor: {fileID: 1870470845}
+  _health: {fileID: 1870470846}
+  _inventory: {fileID: 1870470844}
 --- !u!1 &2007260876
 GameObject:
   m_ObjectHideFlags: 0

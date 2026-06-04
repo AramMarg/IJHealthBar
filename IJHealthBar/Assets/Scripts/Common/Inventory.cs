@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private int _healInInventory;
+    private int _heal;
 
-    public void SetHealInInventory(int heal) =>
-        _healInInventory = heal;
+    public void SetHeal(int heal) =>
+        _heal = heal;
 
     public int AddHeal(int heal) =>
-        _healInInventory += heal;
+        _heal += heal;
 
-    public int GetHealFromInventory() =>
-        _healInInventory;
+    public int GetHeal() =>
+        _heal;
 }
+
