@@ -42,4 +42,18 @@ public class SmoothHealthBarViewer : HealthBarViewer
             yield return null;
         }
     }
+
+    //with movetowards exaple
+    //private IEnumerator SmoothFill(int helth)
+    //{ 
+    //while (Mathf.Approximately(_fillImige.fillAmount,
+    //    helth / _fillConvertCount) == false)
+    //    {
+
+    //        _fillImige.fillAmount = Mathf.Lerp
+    //            (_fillImige.fillAmount, helth / _fillConvertCount,
+    //          _smoothSpeed);
+    //        yield return null;
+    //    }
+    //}
 }

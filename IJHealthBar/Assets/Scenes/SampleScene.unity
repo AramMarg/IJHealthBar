@@ -749,7 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 1870470846}
   _fillImige: {fileID: 505596250}
-  _smoothDelay: 0.1
+  _smoothSpeed: 5
 --- !u!1 &508103873
 GameObject:
   m_ObjectHideFlags: 0
